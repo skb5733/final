@@ -1,0 +1,23 @@
+<h2>
+    <i class="far fa-calendar-alt"></i>
+    <%= @park[:location] %>
+</h2>
+<h1>Review for <%= @park[:park_name] %></h1>
+
+<form action="/parks/<%= @park[:id] %>/reviews/create">
+  <div class="form-group">
+    <label>Please rate your experience on a 1-5 scale, with 5 being excellent</label>
+    <select class="form-control" name="going">
+        <option value="1">1 Star (Terrible)</option>
+        <option value="2">2 Star</option>
+        <option value="3">3 Star</option>
+        <option value="4">4 Star</option>
+        <option value="5">5 Star (Excellent)</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Comments</label>
+    <textarea class="form-control" rows="3" name="comments"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -5,31 +5,40 @@ DB = Sequel.connect(connection_string)                                          
 #######################################################################################
 
 # Database schema - this should reflect your domain model
-DB.create_table! :events do
+DB.create_table! :parks do
   primary_key :id
-  String :title
-  String :description, text: true
-  String :date
+  String :park_name
   String :location
 end
-DB.create_table! :rsvps do
+
+DB.create_table! :users do
   primary_key :id
-  foreign_key :event_id
-  Boolean :going
   String :name
   String :email
+  String :password
+end
+
+DB.create_table! :reviews do
+  primary_key :id
+  foreign_key :park_id
+  foreign_key :user_id
   String :comments, text: true
 end
 
 # Insert initial (seed) data
-events_table = DB.from(:events)
+parks_table = DB.from(:parks)
 
-events_table.insert(title: "Bacon Burger Taco Fest", 
-                    description: "Here we go again bacon burger taco fans, another Bacon Burger Taco Fest is here!",
-                    date: "June 21",
+parks_table.insert(park_name: "Arches National Park", 
+                    location: "Moab, UT")
+
+parks_table.insert(park_name: "Bryce Canyon National Park", 
                     location: "Kellogg Global Hub")
 
-events_table.insert(title: "Kaleapolooza", 
-                    description: "If you're into nutrition and vitamins and stuff, this is the event for you.",
-                    date: "July 4",
-                    location: "Nowhere")
+parks_table.insert(park_name: "Canyonlands National Park", 
+                    location: "Moab, UT")
+
+parks_table.insert(park_name: "Capitol Reef National Park", 
+                    location: "Torrey, UT")
+
+parks_table.insert(park_name: "Zion National Park", 
+                    location: "Springdale, UT")
