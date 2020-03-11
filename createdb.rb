@@ -46,5 +46,5 @@ parks_table.insert(park_name: "Capitol Reef National Park",
                     location: "Torrey, UT")
 
 parks_table.insert(park_name: "Zion National Park", 
-                    forecast: "70 degrees and Sunny"
+                    forecast: "70 degrees and Sunny",
                     location: "Springdale, UT")
