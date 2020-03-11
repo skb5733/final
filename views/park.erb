@@ -37,10 +37,35 @@
                         <a href="/logins/new" class="btn btn-danger">Please sign in to review</a>
                     <% end %>
                 </p>
+
+                <% for review in @reviews %>
+                    <div class="media">
+                        <div class="media-body">
+                            <h5 class="mt-0"><%= @users_table.where(id: review[:user_id]).to_a[0][:name] %></h5>
+                            <%= review[:comments] %>
+                        </div>
+                    </div>
+                <% end %>
+
             </div>
             <div class="col-sm-3">
                 <h3>Today's forecast:</h3>
                 <p><%= @park[:forecast] %></p>
+                    <div class="container">
+                        <div class="col-sm-4">
+                            <h4><%= @forecast['currently']['summary'] %> </h4>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4><%="Current temp: #{@forecast["currently"]["temperature"]} F" %> </h4>
+                        </div>
+                        <iframe
+                            width="600"
+                            height="450"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+                            &q=<%= @park[:lat] %>,<%= @park[:long] %>&zoom=9" allowfullscreen>
+                        </iframe>
+                    </div>
                 <h3>How many reviews so far?</h3>
                 <p><%= @review_count %></p>
             </div>

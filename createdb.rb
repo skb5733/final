@@ -9,7 +9,8 @@ DB.create_table! :parks do
   primary_key :id
   String :park_name
   String :location
-  String :forecast
+  String :lat
+  String :long
 end
 
 DB.create_table! :users do
@@ -30,21 +31,26 @@ end
 parks_table = DB.from(:parks)
 
 parks_table.insert(park_name: "Arches National Park",
-                    forecast: "80 degrees and Sunny",
-                    location: "Moab, UT")
+                    location: "Moab, UT",
+                    lat: "38.7331",
+                    long: "-109.5925")
 
-parks_table.insert(park_name: "Bryce Canyon National Park", 
-                    forecast: "65 degrees and Sunny",
-                    location: "Kellogg Global Hub")
+parks_table.insert(park_name: "Bryce Canyon National Park",
+                    location: "Bryce, UT",
+                    lat: "37.5930",
+                    long: "-112.1871")
 
-parks_table.insert(park_name: "Canyonlands National Park", 
-                    forecast: "75 degrees and Sunny",
-                    location: "Moab, UT")
+parks_table.insert(park_name: "Canyonlands National Park",
+                    location: "Moab, UT",
+                    lat: "38.3269",
+                    long: "-109.8783")
 
-parks_table.insert(park_name: "Capitol Reef National Park", 
-                    forecast: "60 degrees and Sunny",
-                    location: "Torrey, UT")
+parks_table.insert(park_name: "Capitol Reef National Park",
+                    location: "Torrey, UT",
+                    lat: "38.3670",
+                    long: "-111.2615")
 
-parks_table.insert(park_name: "Zion National Park", 
-                    forecast: "70 degrees and Sunny",
-                    location: "Springdale, UT")
+parks_table.insert(park_name: "Zion National Park",
+                    location: "Springdale, UT",
+                    lat: "37.2982",
+                    long: "-113.0263")

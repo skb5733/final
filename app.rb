@@ -3,7 +3,10 @@ require "sinatra"                                                               
 require "sinatra/reloader" if development?                                            #
 require "sequel"                                                                      #
 require "logger"                                                                      #
-require "twilio-ruby"                                                                 #
+require "twilio-ruby" 
+require "geocoder"
+require "forecast_io"
+require "httparty"                                                                #
 require "bcrypt"                                                                      #
 connection_string = ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.sqlite3"  #
 DB ||= Sequel.connect(connection_string)                                              #
@@ -13,6 +16,9 @@ use Rack::Session::Cookie, key: 'rack.session', path: '/', secret: 'secret'     
 before { puts; puts "--------------- NEW REQUEST ---------------"; puts }             #
 after { puts; }                                                                       #
 #######################################################################################
+
+# Dark Sky API key here
+ForecastIO.api_key = "cdd0def2e32890be9e721b76f2fb46e5"
 
 parks_table = DB.from(:parks)
 reviews_table = DB.from(:reviews)
@@ -33,6 +39,7 @@ get "/parks/:id" do
     @reviews = reviews_table.where(park_id: @park[:id])
     @review_count = reviews_table.where(park_id: @park[:id]).count
     @users_table = users_table
+    @forecast = ForecastIO.forecast(@park[:lat],@park[:long]).to_hash
     view "park"
 end
 
