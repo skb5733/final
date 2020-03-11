@@ -9,6 +9,7 @@ DB.create_table! :parks do
   primary_key :id
   String :park_name
   String :location
+  String :forecast
 end
 
 DB.create_table! :users do
@@ -28,17 +29,22 @@ end
 # Insert initial (seed) data
 parks_table = DB.from(:parks)
 
-parks_table.insert(park_name: "Arches National Park", 
+parks_table.insert(park_name: "Arches National Park",
+                    forecast: "80 degrees and Sunny",
                     location: "Moab, UT")
 
 parks_table.insert(park_name: "Bryce Canyon National Park", 
+                    forecast: "65 degrees and Sunny",
                     location: "Kellogg Global Hub")
 
 parks_table.insert(park_name: "Canyonlands National Park", 
+                    forecast: "75 degrees and Sunny",
                     location: "Moab, UT")
 
 parks_table.insert(park_name: "Capitol Reef National Park", 
+                    forecast: "60 degrees and Sunny",
                     location: "Torrey, UT")
 
 parks_table.insert(park_name: "Zion National Park", 
+                    forecast: "70 degrees and Sunny"
                     location: "Springdale, UT")

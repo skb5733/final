@@ -1,0 +1,127 @@
+body {
+
+    /* Default font */
+    font-family: 'Quicksand', sans-serif;
+}
+  
+/* Headline overrides */
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+/* Navbar */
+
+  .navbar-brand {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    color: purple;
+  }
+  .navbar-brand img {
+    width: 30px;
+    height: 30px;
+    color: purple;
+  }
+  .navbar-light .navbar-brand {
+    color: purple;
+  }
+  
+/* Jumbotron background and font styles */
+
+  .jumbotron {
+
+    /* Background */
+    background-attachment: fixed;
+    background-image: url(kidsstock2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 630px;
+  
+    /* Fonts */
+    color: purple;
+  }
+
+  .jumbotron1 {
+
+    /* Background */
+    background-attachment: scroll;
+    background-image: url(boysinfield2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+  
+    /* Fonts */
+    color: white;
+  }
+  
+  .jumbotron2 {
+
+    /* Background */
+    background-attachment: scroll;
+    background-image: url(kidshappy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 1200px;
+  
+    /* Fonts */
+    color: white
+  }
+
+  .jumbotron3 {
+
+    /* Background */
+    background-attachment: scroll;
+    background-image: url(kidbubbles.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 700px;
+  
+    /* Fonts */
+    color: white
+  }
+  
+  /* Background color of "testimonials" */
+  .testimonials {   
+    background-color: white;
+    color: purple
+  }
+  
+  /* Size of testimonials images */
+  .media img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Size of testimonials images */
+  .list-group img {
+    width: 180px;
+    height: 240px;
+  }
+  
+  /* Pricing page */
+  .pricing {
+    background-color: white
+  }
+  .pricing h1 {
+    font-family: 'Quicksand', sans-serif;
+    color: purple
+  }
+  
+  /* Footer */
+  .footer img {
+    width: 100px;
+  }
+
+  /*Meet our staff page*/
+
+  .meetourstaff {
+    font-family: 'Quicksand', sans-serif;
+    color: white
+  }
+
+  .lead-bold {
+    text-transform: uppercase;
+    font-size: x-large;
+    font-weight: bolder;
+    font-style: italic;
+  }
