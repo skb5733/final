@@ -25,16 +25,23 @@
     <body>
 
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-8">
                 </h2>
                 <h1><%= @park[:park_name] %></h1>
                 <p><%= @park[:location] %></p>
                 
+                <iframe
+                    width="600"
+                    height="450"
+                    frameborder="0" style="border:0"
+                    <img src="utah-national-parks-map.jpg">
+                </iframe>
+
                 <p class="mt-5">
                     <% if @current_user %>
                         <a href="/parks/<%= @park[:id] %>/reviews/new" class="btn btn-primary">Review now!</a>
                     <% else %>
-                        <a href="/logins/new" class="btn btn-danger">Please sign in to review</a>
+                        <a href="/logins/new" class="btn btn--primary">Please sign in to review</a>
                     <% end %>
                 </p>
 
@@ -49,14 +56,14 @@
                 <% end %>
 
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <h3>Today's forecast:</h3>
                 <p><%= @park[:forecast] %></p>
                     <div class="container">
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <h4><%= @forecast['currently']['summary'] %> </h4>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-12">
                             <h4><%="Current temp: #{@forecast["currently"]["temperature"]} F" %> </h4>
                         </div>
                         <iframe
@@ -67,7 +74,7 @@
                             &q=<%= @park[:lat] %>,<%= @park[:long] %>&zoom=9" allowfullscreen>
                         </iframe>
                     </div>
-                <h3>How many reviews so far?</h3>
+                <h3>Total reviews:</h3>
                 <p><%= @review_count %></p>
                 <h3>Average rating (1-5)</h3>
                 <p><%= @review_sum %></p>

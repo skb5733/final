@@ -23,14 +23,35 @@
     </head>
 
     <body>
+    
+            <ul class="list-unstyled">
+            <li class="media">
+                <div class="media-body">
+                <blockquote class="blockquote">
+                    <p class="mb-0">"May your trails be crooked, winding, lonesome, dangerous, leading to the most amazing views."</p>
+                    <footer class="blockquote-footer">Edward Abbey</footer>
+                </blockquote>
+                </div>
+            </li>
 
-    <h3>Select a national park</h3>
+    <div class="row">
+        <div class="col-sm-6"
+            <h1>Select a national park</h1>
 
-        <div>
-            <% for park in @parks %>
-                <p><a href="/parks/<%= park[:id] %>"><%= park[:park_name] %></a></p>
-            <% end %>
+            <ul class="list-unstyled">
+                <li class="media">
+                    <div class="media-body">
+                        <% for park in @parks %>
+                            <img src="utah-national-parks-map.jpg">
+                            <p><a href="/parks/<%= park[:id] %>"><%= park[:park_name] %></a></p>
+                        <% end %>
+                    </div>
+                </li>
         </div>
+        <div class="col-sm-6">
+            <img src="utah-national-parks-map.jpg">
+        </div>
+    </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
