@@ -42,6 +42,7 @@
                     <div class="media">
                         <div class="media-body">
                             <h5 class="mt-0"><%= @users_table.where(id: review[:user_id]).to_a[0][:name] %></h5>
+                            <%= review[:rating] %>
                             <%= review[:comments] %>
                         </div>
                     </div>
@@ -68,6 +69,8 @@
                     </div>
                 <h3>How many reviews so far?</h3>
                 <p><%= @review_count %></p>
+                <h3>Average rating (1-5)</h3>
+                <p><%= @review_sum %></p>
             </div>
         </div>
 

@@ -24,6 +24,7 @@ DB.create_table! :reviews do
   primary_key :id
   foreign_key :park_id
   foreign_key :user_id
+  Integer :rating
   String :comments, text: true
 end
 

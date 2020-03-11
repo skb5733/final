@@ -38,6 +38,7 @@ get "/parks/:id" do
     @park = parks_table.where(id: params[:id]).to_a[0]
     @reviews = reviews_table.where(park_id: @park[:id])
     @review_count = reviews_table.where(park_id: @park[:id]).count
+    @review_sum = reviews_table.where(park_id: @park[:id]).sum(:rating)
     @users_table = users_table
     @forecast = ForecastIO.forecast(@park[:lat],@park[:long]).to_hash
     view "park"
