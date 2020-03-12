@@ -35,21 +35,21 @@
             </li>
 
     <div class="row">
-        <div class="col-sm-6"
+        <div class="col-sm-4"
             <h1>Select a national park</h1>
 
             <ul class="list-unstyled">
                 <li class="media">
                     <div class="media-body">
                         <% for park in @parks %>
-                            <img src="utah-national-parks-map.jpg">
+                            <img src=<%= park[:image] %>>
                             <p><a href="/parks/<%= park[:id] %>"><%= park[:park_name] %></a></p>
                         <% end %>
                     </div>
                 </li>
         </div>
-        <div class="col-sm-6">
-            <img src="utah-national-parks-map.jpg">
+        <div class="col-sm-8">
+            <img src="https://i.pinimg.com/originals/9b/73/84/9b73841d16a7da9de9bad12b8915eb6c.jpg">
         </div>
     </div>
 
