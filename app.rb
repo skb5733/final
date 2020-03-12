@@ -39,7 +39,6 @@ get "/parks/:id" do
     @reviews = reviews_table.where(park_id: @park[:id])
     @review_count = reviews_table.where(park_id: @park[:id]).count
     @review_sum = reviews_table.where(park_id: @park[:id]).sum(:rating)
-
     @users_table = users_table
     @forecast = ForecastIO.forecast(@park[:lat],@park[:long]).to_hash
     view "park"
@@ -57,6 +56,9 @@ get "/parks/:id/reviews/create" do
                        user_id: session["user_id"],
                        rating: params["rating"],
                        comments: params["comments"])
+    
+
+
     view "create_review"
 end
 
